@@ -1,0 +1,62 @@
+class Tnode{
+    int data;
+    Tnode left;
+    Tnode right;
+    Tnode(int a)
+    {
+        this.data=a;
+        this.left=null;
+        this.right=null;
+    }
+}
+class BTree{
+    Tnode root;
+    BTree(int r)
+    {
+        this.root=new Tnode(r);
+    }
+    public void insertleft(Tnode root,int val)
+    {
+        Tnode c=new Tnode(val);
+        root.left=c;
+    }
+    public void insertright(Tnode root,int val)
+    {
+        Tnode c=new Tnode(val);
+        root.right=c;
+    }
+    public void inorder(Tnode root)
+    {
+        if(root!=null)
+        {
+            inorder(root.left);
+            System.out.print(root.data+" ");
+            inorder(root.right);
+        }
+    }
+    public void preorder(Tnode root)
+    {
+        if(root!=null)
+        {
+            System.out.print(root.data+" ");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+}
+class Main{
+    public static void main(String args [])
+    {
+        BTree b=new BTree(50);
+        b.insertleft(b.root,65);
+        b.insertright(b.root,75);
+        b.insertleft(b.root.left,85);
+        b.insertright(b.root.left,75);
+        b.insertleft(b.root.right,85);
+        b.insertright(b.root.right,75);
+        System.out.println("INORDER");
+        b.inorder(b.root);
+        System.out.println("\nPREORDER");
+        b.preorder(b.root);
+    }
+}

@@ -1,0 +1,87 @@
+class Dnode         // class is a user defined datatype where we can create metheod etc..
+{
+    int data;
+    Dnode next;
+    Dnode prev;
+    Dnode(int d)
+    {
+        this.data=d;
+        this.next=null;
+        this.prev=null;
+    }
+}
+class DoubleList
+{
+    Dnode head;
+    Dnode tail;
+    DoubleList()
+    {
+        this.head=null; // means no node in that so head nd tail is null assign
+        this.tail=null;
+    }
+    public void insertatbegin(int a)
+    {
+        Dnode d=new Dnode(a);
+        if(head==null)
+        {
+            head=d;
+            tail=d;
+        }
+        else
+        {
+            d.next=head;
+            head.prev=d;
+            head=d;
+        }
+    }
+    public void insertatend(int a)
+    {
+        
+        Dnode d=new Dnode(a);
+        if(head==null)
+        {
+            head=d;
+            tail=d;
+        }
+        else
+        {
+            d.next=d;
+            d.prev=tail;
+            tail=d;
+        }
+    }
+    public void insertatpos(int p,int data)
+    {
+        Dnode d=new Dnode(data);
+        Dnode temp=head;
+        for(int i=1;i<p-1;i++)
+        {
+            temp=temp.next;
+        }
+        d.next=temp.next;
+        d.prev=temp;
+        temp.next=d;
+    }
+    public void display()
+    {
+        Dnode temp=tail;   // for backward direc Dnode temp=tail
+        while(temp!=null)
+        {
+            System.out.print(temp.data+"-->");
+            System.out.print(temp.next+"-->");
+            temp=temp.prev;   //temp=temp.prev (backward direc)
+        }
+    }
+}
+class DList
+{
+    public static void main(String args [])
+    {
+        DoubleList  d1=new DoubleList();
+        d1.insertatbegin(45);
+        d1.insertatbegin(55);
+        d1.insertatend(43);
+        d1.insertatend(67);
+        d1.display();
+    }
+}

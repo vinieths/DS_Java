@@ -1,0 +1,138 @@
+class Tnode{
+    int data;
+    Tnode left;
+    Tnode right;
+    Tnode(int a)
+    {
+        this.data=a;
+        this.left=null;
+        this.right=null;
+    }
+}
+class BTree{
+    Tnode root;
+    BTree(int r)
+    {
+        this.root=new Tnode(r);
+    }
+    public void insertleft(Tnode root,int val)
+    {
+        Tnode c=new Tnode(val);
+        root.left=c;
+    }
+    public void insertright(Tnode root,int val)
+    {
+        Tnode c=new Tnode(val);
+        root.right=c;
+    }
+    public void inorder(Tnode root)
+    {
+        if(root!=null)
+        {
+            inorder(root.left);
+            System.out.print(root.data+" ");
+            inorder(root.right);
+        }
+    }
+    public void preorder(Tnode root)
+    {
+        if(root!=null)
+        {
+            System.out.print(root.data+" ");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+}
+class Main{
+    public static void main(String args [])
+    {
+        BTree b=new BTree(50);
+        b.insertleft(b.root,65);
+        b.insertright(b.root,75);
+        b.insertleft(b.root.left,85);
+        b.insertright(b.root.left,75);
+        b.insertleft(b.root.right,85);
+        b.insertright(b.root.right,75);
+        System.out.println("INORDER");
+        b.inorder(b.root);
+        System.out.println("\nPREORDER");import java.util.Scanner;
+class Node1
+{
+    int data;
+    Node1 left;
+    Node1 right;
+    Node1(int item)
+    {
+        this.data=item;
+        this.left=null;
+        this.right=null;
+    }
+}
+class BinaryStree
+{
+    Node1 root;
+    BinaryStree()
+    {
+        root=null;
+    }
+    void insert(int data)
+    {
+        
+        root=insertRec(root,data);
+    }
+    Node1 insertRec(Node1 root,int data)
+    {
+        if(root==null)
+        {
+            root=new Node1(data);
+            return root;
+        }
+        if(data<root.data)
+        {
+            root.left=insertRec(root.left,data);
+           
+        }
+        else
+        {
+            root.right=insertRec(root.right,data);
+        }
+        return root;
+    }
+    void inorder()
+    {
+        inorderRec(root);
+    }
+    void inorderRec(Node1 root)
+    {
+        if(root!=null)
+        {
+            inorderRec(root.left);
+            System.out.println(root.data+" ");
+            inorderRec(root.right);
+        }
+    }
+}
+
+public class Main
+{
+public static void main(String[] args) {
+   BinaryStree p=new BinaryStree();
+   Scanner sc=new Scanner(System.in);   //getting user input run time
+   int n=5;
+   for(int i=0;i<n;i++){
+       int val=sc.nextInt();
+       p.insert(val);
+   }
+   p.insert(50);
+  // p.insert(45);
+  // p.insert(35);
+  // p.insert(55);
+   System.out.println("Inorder");
+   p.inorder();
+
+}
+}
+        b.preorder(b.root);
+    }
+}

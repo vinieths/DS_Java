@@ -1,0 +1,58 @@
+class Node2
+{
+    int data;
+    Node2 next;
+    Node2(int d)
+    {
+        this.data=d;
+        this.next=null;
+    }
+}
+
+class LL
+{   
+    Node2 head;
+    Node2 tail;
+    LL()
+    {
+        this.head=null;
+        this.tail=null;
+    }
+    public void insert(int d)
+    {
+        Node2 n = new Node2(d);
+        
+        if(head==null)
+        {
+            head=n;
+            tail=n;
+        }
+        else{
+            n.next=head;
+            head=n;
+        }
+    }
+    public void display()
+    {
+        Node2 temp=head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+"-->");
+            System.out.print(temp.next+"-->");
+            temp=temp.next;
+        }
+        //System.out.println("Null");
+    }
+}
+public class List{
+    public static void main(String args [])
+    {
+        LL l = new LL();
+        l.insert(5);
+        l.insert(3);
+        l.insert(4);
+        l.insert(5);
+        l.display();
+    }
+    
+}

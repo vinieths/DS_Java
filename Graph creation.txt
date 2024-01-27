@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+class Graph
+{
+    int vertices;
+    ArrayList<ArrayList<Integer>> ll; //creating array list
+    Graph(int v)
+    {
+        this.vertices=v;
+        ll=new ArrayList<>(v);
+        for(int i=0;i<v;i++)
+        {
+            ll.add(new ArrayList<>());
+        }
+    }
+    void addEdge(int s,int e)
+    {
+      ll.get(s).add(e);  //for directed Graph only that line enough
+      ll.get(e).add(s);  //for undirected Graph both line reqd 
+    }
+    void display()
+    {
+        for(int i=0;i<vertices;i++)
+        {
+            System.out.println(i+": ");
+            for(int j=0;j<ll.get(i).size();j++)
+            {
+                System.out.print(ll.get(i).get(j)+" ");
+            }
+        }
+        System.out.println("");
+    }
+}
+public class Main{
+    public static void main(String args []){
+        int v=5;
+        Graph g=new Graph(v);
+        g.addEdge(0,1);
+        g.addEdge(0,2);
+        g.addEdge(1,2);
+        g.addEdge(1,3);
+        g.addEdge(2,4);
+        g.addEdge(2,3);
+        g.addEdge(4,3);
+        g.display();
+    //    g.addEdge()
+    }
+}

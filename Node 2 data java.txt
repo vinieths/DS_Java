@@ -1,0 +1,20 @@
+class Node1
+{
+    int data1;
+    int data2;
+    Node1 next;
+    Node1(int a,int b)
+    {
+        this.data1=a;
+        this.data2=b;
+        this.next=null;
+    }
+}
+public class Example1
+{
+    public static void main(String [] args)
+    {
+        Node1 n=new Node1(5,6);
+        System.out.println(n.data1+" "+n.data2+" "+n.next);
+    }
+}

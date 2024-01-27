@@ -1,0 +1,64 @@
+class Snode{
+    int data;
+    Snode next;
+    Snode(int d)
+    {
+        this.data=d;
+        this.next=null;
+    }
+    class Slist()
+    {
+        Snode head;
+        Snode tail;
+        Snode()
+        {
+            this.head=null;
+            this.tail=null;
+        }
+    }
+    public void push(int d)
+    {
+        Snode n=new Snode(d);
+        Snode temp=head;
+        if(head==null)
+        {
+          //  head=n;
+          //    tail=n;
+            System.out.println("List is Empty");
+        }
+        else
+        {
+            tail.next=tail;
+            tail=n;
+        }
+    }
+    public void pop()
+    {
+        
+    }
+    public void display()
+    {
+        Snode temp=head;
+        while(temp!=null)
+        {
+            System.out.println(temp.data+"-->");
+            temp=temp.next;
+        }
+    }
+}
+class Stack 
+{
+    public static void main(String args [])
+    {
+        Snode s =new Snode();
+        s.push(45);
+        s.push(55);
+        s.push(75);
+        s.push(65);
+        s.display();
+        s.pop();
+        System.out.println("\nAfter removal");
+        s.display();
+        
+    }
+}
